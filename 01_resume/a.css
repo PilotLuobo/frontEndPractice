@@ -103,14 +103,19 @@ a {
 
 .userCard .pictureAndText {
     border: 1px solid blue;
+    padding: 40px;
 }
 
 .userCard .pictureAndText .pic {
     border: 1px solid red;
+    float: left;
 }
 
 .userCard .pictureAndText .text {
     border: 1px solid red;
+    float: left;
+    margin-left: 65px;
+    width: 475px;
 }
 
 .userCard .pictureAndText .text .welcome {
@@ -119,6 +124,8 @@ a {
     display: inline-block;
     padding: 4px 16px;
     line-height: 22px;
+    position: relative;
+    margin-bottom: 40px;
 }
 
 .userCard .pictureAndText .text .welcome .triangle {
@@ -127,8 +134,33 @@ a {
     width: 0;
     border-left-color: #e6686A;
     border-top-width: 0;
+    position: absolute;
+    left: 4px;
+    top: 100%;
 }
+
+.userCard .pictureAndText .text hr {
+    margin: 20px 0;
+}
+
+.userCard .pictureAndText .text dl dt,
+.userCard .pictureAndText .text dl dd {
+    float: left;
+    padding: 6px 0;
+}
+
+.userCard .pictureAndText .text dl dt {
+    width: 30%;
+    font-weight: bold;
+}
+
+.userCard .pictureAndText .text dl dd {
+    width: 70%;
+    color: #9a9da2;
+}
+
 
 .userCard .mediaLink {
     border: 1px solid red;
+    background-color: #e6686a;
 }
