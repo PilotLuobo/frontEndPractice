@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            background-color: #879191;
+            border: 1px solid red;
+            text-align: center
+        }
+
+        .yinyang {
+            margin: 50px auto 20px;
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #ffffff 0%, #ffffff 50%, #000000 50%, #000000 100%);
+            position: relative;
+            animation: spin 3s infinite linear;
+        }
+
+        .yinyang::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 40px solid #000;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+
+        .yinyang::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 40px solid #fff;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            top: 50px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="yinyang">
+
+    </div>
+    <p>
+        The Dao produced One; One produced Two; Two produced Three; Three produced All things.
+    </p>
+</body>
+
+</html>

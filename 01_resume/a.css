@@ -95,24 +95,20 @@ a {
 
 /*个人资料*/
 .userCard {
-    border: 1px solid red;
     max-width: 940px;
     margin: 0 auto;
     background: #ffffff;
 }
 
 .userCard .pictureAndText {
-    border: 1px solid blue;
     padding: 40px;
 }
 
 .userCard .pictureAndText .pic {
-    border: 1px solid red;
     float: left;
 }
 
 .userCard .pictureAndText .text {
-    border: 1px solid red;
     float: left;
     margin-left: 65px;
     width: 475px;
@@ -161,6 +157,5 @@ a {
 
 
 .userCard .mediaLink {
-    border: 1px solid red;
     background-color: #e6686a;
 }
