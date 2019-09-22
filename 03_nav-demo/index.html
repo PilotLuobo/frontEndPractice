@@ -51,6 +51,11 @@
             'm': undefined,
         }
 
+        var localHash = JSON.parse(localStorage.getItem('saveKeys') || 'null')
+        if (localHash) {
+            hash = localHash
+        }
+
         for (index = 0; index < keys.length; index++) {
             div1 = document.createElement('div')
             x.appendChild(div1)
@@ -59,9 +64,15 @@
                 div1.appendChild(kbd1)
                 kbd1.textContent = keys[index][index2]
                 buttonX = document.createElement('button')
-                buttonX.textContent='Edit'
+                buttonX.textContent = 'Edit'
+                buttonX.id = keys[index][index2]
                 kbd1.appendChild(buttonX)
-                buttonX.onclick = function(input){}
+                buttonX.onclick = function (input) {
+                    // inputKey = input.target.id
+                    // x = prompt('Give me a website')
+                    hash[input.target.id] = prompt('Give me a website') //hash变更
+                    localStorage.setItem('saveKeys', JSON.stringify(hash))
+                }
             }
         }
 
