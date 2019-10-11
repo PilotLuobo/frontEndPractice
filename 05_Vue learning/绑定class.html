@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>绑定class</title>
+        <script src="vue.js"></script>
+    </head>
+    <style type="text/css">
+        .divstyle {
+            color: #008000;
+            background-color: #879191;
+        }
+
+        .buttonChange {
+            color: darkred;
+            background: lightblue;
+        }
+    </style>
+    <body>
+        <div id="app">
+            sssssssss
+            <hr>
+            <div :class="{divstyle:isActive}">5555555</div>
+            <hr>
+            <button type="button" :class="{buttonChange:isBack}" v-on:click="change">哈哈哈哈哈哈哈哈哈哈或哈哈哈哈哈哈哈</button>
+        </div>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    isActive: true,
+                    isBack: true,
+                },
+                methods: {
+                    change: function() {
+                        this.isBack = !this.isBack;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
