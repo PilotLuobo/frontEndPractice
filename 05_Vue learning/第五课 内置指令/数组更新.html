@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数组更新</title>
+    </head>
+    <body>
+        <div id="app">
+            改变数组的一系列方法：
+            <ul>
+                <li>push()：在末尾添加元素</li>
+                <li>pop()：将数组的最后一个元素移除</li>
+                <li>shift()：删除数组的第一个元素</li>
+                <li>unshift()：在数组的第一个元素位置添加一个元素</li>
+                <li>splice()：可以添加或者删除函数 -- 返回删除的元素。三个元素：①开始操作的位置②要操作的长度③可选参数</li>
+                <li>sort()：排序</li>
+                <li>reverse()</li>
+            </ul>
+            <hr>
+            <div v-for="study in arry">{{study}}</div>
+            <button type="button" v-on:click="sortArry">排序一下吧！</button><br>
+            <button type="button" v-on:click="reverseArry">反转一下吧！</button>
+            <hr>
+            <button type="button" v-on:click="changeOne">改变数组的指定项！！！</button><br>
+            <button type="button" v-on:click="changeLength">改变数组的长度</button>
+            <hr>
+            返回字符串中含有oo的项：<br>
+            {{matchOO}}
+        </div>
+        <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    arry: ['book', 'pen', 'pencil'],
+                },
+                computed: {
+                    matchOO: function() {
+                        // 参数代表要过滤的每一项
+                        return this.arry.filter(function(book) {
+                            return book.match(/oo/);
+                        });
+                    }
+                },
+                methods: {
+                    // 利用sort方法进行排序
+                    sortArry: function() {
+                        this.arry.sort(function(a, b) {
+                            // 从小到大排序
+                            return a.length - b.length;
+                        })
+                    },
+                    // 反转数组
+                    reverseArry: function() {
+                        this.arry.reverse();
+                    },
+                    // 改变数组的指定项
+                    changeOne: function() {
+                        this.arry[0] = "car";
+                    },
+                    // 改变数组的长度
+                    changeLength: function() {
+                        this.arry.length = 1;
+                    },
+                }
+            })
+            // 改变Vue的第一项
+            Vue.set(app.arry, 1, "car")
+        </script>
+    </body>
+</html>
