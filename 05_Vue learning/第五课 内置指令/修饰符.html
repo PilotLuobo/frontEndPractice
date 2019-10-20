@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="app">
+            <div @click="divClick" style="height: 100px;width: 100px;background: lightblue;">
+                <button type="button" @click.stop="btnClick">点我！</button>
+            </div>
+            <hr>
+            prevent的用法：<br>
+            每次提交表单都会重载页面<br>
+            <form action="" @submit.prevent="hangle">
+                <button type="submit">提交表单</button>
+            </form>
+            <hr>
+            <div @click.self="divClick" style="height: 100px;width: 100px;background: lightblue;">
+                <button type="button" @click.stop="btnClick">点我！</button>
+            </div>
+            <hr>
+            <button type="button" @click="onceClick">执行</button>
+            <button type="button" @click.once="onceClick">只执行一次</button>
+            <hr>
+            监听键盘事件：<br>
+            <input @keyup.13="submit" />
+        </div>
+
+        <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+
+                },
+                methods: {
+                    divClick: function() {
+                        alert("这是div");
+                    },
+                    btnClick: function() {
+                        alert("这是btn");
+                    },
+                    hangle: function() {
+                        alert("不重载也不刷新");
+                    },
+                    onceClick: function() {
+                        console.log("11");
+                    },
+                    submit: function() {
+                        console.log("你按下了enter键")
+                    }
+                },
+            })
+        </script>
+    </body>
+</html>

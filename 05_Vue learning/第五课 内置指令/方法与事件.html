@@ -7,10 +7,25 @@
         <title>方法与事件</title>
     </head>
     <body>
+        <div id="app">
+            <button @click="handle">点击我！！</button><br>
+            <button @click="handle()">点击我！！</button><br>
+            <button @click="handle(8)">点击我加8！！</button><br>
+            点击次数{{count}}
+        </div>
         <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
             var app = new Vue({
-                
+                el: '#app',
+                data: {
+                    count: 0,
+                },
+                methods: {
+                    handle: function(count) {
+                        count = count || 1;
+                        this.count = this.count + count;
+                    },
+                },
             })
         </script>
     </body>
