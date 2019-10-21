@@ -8,17 +8,65 @@
     <title>基本用法</title>
 </head>
 
-<body>
+<body style="margin:0 0 300px 0;">
+    <div id="app">
+        v-model的用法：<br>
+        <hr>
+        input和textarea：<br>
+        <input type="text" v-model="value"><br>
+        {{value}}
+        <br>
+        <textarea name="" id="" cols="30" rows="10" v-model="msg">我是多行文本框的初始化值</textarea><br>
+        {{msg}}
+        <hr>
+        单选框：<br>
+        单个单选框：<input type="radio" v-bind:checked='oneRadio'><br>
+        多个单选框：<br>
+        小猫：<input type="radio" name="多个单选框" value="小猫" v-model="checkName"><br>
+        小狗：<input type="radio" name="多个单选框" value="小狗" v-model="checkName"><br>
+        仓鼠：<input type="radio" name="多个单选框" value="仓鼠" v-model="checkName"><br>
+        Now we choose {{checkName}}
+        <hr>
+        复选框：<br>
+        单个复选框 --- 用v-bind：<input type="checkbox" name="" id="" v-bind:checked='oneRadio'><br>
+        单个复选框 --- 用v-model：<input type="checkbox" name="" id="" v-model='oneRadio'><br>
+        多个复选框：<br>
+        小猫：<input type="checkbox" value="小猫" v-model="checks"><br>
+        小狗：<input type="checkbox" value="小狗" v-model="checks"><br>
+        仓鼠：<input type="checkbox" value="仓鼠" v-model="checks"><br>
+        现在选中了{{checks}}
+        <hr>
+        下拉框：<br>
+        单选的下拉框：<br>
+        <select v-model="selected">
+            <option value="小猫">小猫</option>
+            <option value="小狗">小狗</option>
+            <option value="仓鼠">仓鼠</option>
+        </select>
+        <br>now we choose {{selected}} <br>
+        多选的下拉框：<br>
+        <select v-model="selectedMulti" multiple>
+            <option value="小猫">小猫</option>
+            <option value="小狗">小狗</option>
+            <option value="仓鼠">仓鼠</option>
+        </select>
+        <br>now we choose {{selectedMulti}} <br>
+
+    </div>
+
     <script src="../vue.js"></script>
     <script>
         var app = new Vue({
-            el:'app',
-            data:{
-
+            el: '#app',
+            data: {
+                value: '',
+                msg: '',
+                oneRadio: true,
+                checkName: '小猫',
+                checks: [],
+                selected: [],
+                selectedMulti:[]
             },
-            methods:{
-                
-            }
         })
     </script>
 </body>
