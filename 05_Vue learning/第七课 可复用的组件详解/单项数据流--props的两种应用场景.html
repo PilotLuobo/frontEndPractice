@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app {
+            border: 2px solid black;
+            width: 600px;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 3px;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    父组件
+    <my-component msg="我是父 组件传递的数据 "></my-component>
+    <hr>
+    需求： 通过input中输入的数据直接改变div的宽度 <br>
+    <input type="text" v-model="width">
+    <width-component :width="width"></width-component>
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    // 将传递进来的数据作为初始值进行保存
+    // 注册组件
+    Vue.component('my-component', {
+        props: ['msg'],
+        template: '<div>{{count}}</div>',
+        data: function () {
+            return {
+                // props中的值可以通过this.xxx来直接进行获取
+                count: this.msg
+            }
+        }
+    });
+    //width
+    Vue.component('width-component', {
+        props: ['width'],
+        template: '<div :style="style"></div>',
+        data: function () {
+            return {}
+        },
+        computed: {
+            style: function () {
+                // 直接就是style
+                return {
+                    width: this.width + 'px',
+                    background: 'red',
+                    height: '16px'
+                }
+            }
+        }
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            width: 0
+        },
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app {
+            border: 2px solid black;
+            width: 600px;
+            height: 300px;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 3px;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    这是APP内容
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    Vue.component('my-component', {
+        template: '<div>我是一个全局组件</div>'
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {},
+
+    })
+</script>
+</body>
+</html>
