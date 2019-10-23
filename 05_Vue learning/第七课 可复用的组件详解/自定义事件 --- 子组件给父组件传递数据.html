@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子组件给父组件传递数据</title>
+    <style>
+        #app {
+            border: 2px solid black;
+            width: 600px;
+            height: 300px;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 3px;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    这是APP内容
+    <hr>
+    您现在的银行卡余额：{{total}}
+    <son-component></son-component>
+</div>
+
+<script src="../vue.js"></script>
+<script>
+    // 需求：通过 + 和 - 来给父组件传递数据
+    Vue.component('son-component', {
+        template: '<div><button @click="handleincrease">+100</button><button @click="handlereduce">-100</button></div>',
+        data: function () {
+            return {
+                count: 1000
+            }
+        },
+        methods: {
+            handleincrease: function () {
+                this.count = this.count + 1000
+            },
+            handlereduce:function () {
+                this.count = this.count - 1000
+            }
+        }
+    });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            total: 2000
+        },
+
+    })
+</script>
+</body>
+</html>
